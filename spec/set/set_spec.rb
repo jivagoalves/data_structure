@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe SetStructure do
-  let(:set) { SetStructure.new }
+describe DataStructure::SetStructure do
+  let(:set) { DataStructure::SetStructure.new }
 
   describe "#empty?" do
     context "when the data structure is empty" do
