@@ -73,4 +73,29 @@ describe SetStructure do
       end
     end
   end
+
+  describe "#remove" do
+    context "when the structure is empty" do
+      it "does nothing" do
+        set.remove("one")
+        set.size.should == 0
+        set.contains?("one").should be_false
+      end
+    end
+
+    it "removes the element from the structure" do
+      %w(one two third).each do |e|
+        set.add(e)
+      end
+
+      expect {
+        set.remove("two")
+      }.to change{ set.size }.from(3).to(2)
+
+      %w(one third).each do |e|
+        set.contains?(e).should be_true
+      end
+      set.contains?("two").should be_false
+    end
+  end
 end

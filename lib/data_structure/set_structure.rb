@@ -26,4 +26,14 @@ class SetStructure
   def length
     self.size
   end
+
+  def remove(element)
+    0.upto (@size - 1) do |i|
+      if @elements[i] == element
+        @elements[i] = @elements[@size - 1]
+        @elements[@size -1] = nil
+        @size -= 1
+      end
+    end
+  end
 end
