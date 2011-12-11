@@ -2,9 +2,9 @@ module DataStructure
   class SetStructure
     attr_reader :size
 
-    def initialize
-      @size = 0
-      @elements = []
+    def initialize(*elements)
+      @size = elements.size || 0
+      @elements = elements || []
     end
 
     def empty?

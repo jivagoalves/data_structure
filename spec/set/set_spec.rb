@@ -4,6 +4,24 @@ module DataStructure
   describe SetStructure do
     let(:set) { SetStructure.new }
 
+    describe "#new" do
+      it "initializes a new set" do
+        set.size.should == 0
+        set.empty?.should be_true
+        set.contains?("one").should be_false
+      end
+
+      context "when it receives arguments" do
+        it "initializes a new set with the arguments as elements" do
+          set = SetStructure.new("one","two")
+          set.size.should == 2
+          %w(one two).each do |e|
+            set.contains?(e).should be_true
+          end
+        end
+      end
+    end
+
     describe "#empty?" do
       context "when the data structure is empty" do
         it "returns true" do
